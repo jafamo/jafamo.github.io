@@ -23,7 +23,7 @@ var bio = {
                 "location" : "Chelmsford",
                 "email" : "jafamo@gmail.com"
               }], 
-  "skills" : ["Java","PHP","JavaScript","MySQL", "Git", "HTML"]
+  "skills" : ["Java","PHP","HTML/CSS/JavaScript","MySQL", "Git", "Apache/Tomcat/GlassFish"]
 
 };
 
@@ -34,14 +34,14 @@ var work = {
         
         "employer": "Tisssat",
         "title" : "HelpDesk",
-        "dates" : 2015,
+        "dates" : "May 2015 - July 2015",
         "location":"Valencia",
         "description": "HelpDesk with differents OS (Linux, Windows). Resolving incidences Java version 1.6.39"
       },
       {
         "title" : "SysAdmin",
         "employer": "Dimension Informatica",
-        "dates" : 2006,
+        "dates" : "March 2006 - October 2006",
         "location":"Valencia ",
         "description": "Install servers (Apache,VSFT).Install and configure SO (Windows and Linux)."
       }]
@@ -54,9 +54,9 @@ var education = {
   "schools" : [
       {
         "name" : "Universidad Politecnica de Valencia",
-        "degree" : "Bachelor of IT Engienering (B.A.Sc.)",
+        "degree" : "Bachelor of IT Engineering (B.A.Sc.)",
         "dates" : "2006 - 2015",
-        "majors" : "computer science",
+        "Title" : "IT Engineering, Computer Science",
         "location" : "Valencia  (Spain)",
         "url" : "http://www.upv.es/en/"
       },
@@ -64,26 +64,20 @@ var education = {
         "name" : "Politecnico di Milano",
         "degree" : "Bachelor of Applied Science (B.A.Sc.) ERASMUS student",
         "dates" : "2012 - 2013",
-        "majors" : "computer science",
+        "Title" : "Computer Science",
         "location" : "Como - Milan (Italy)",
         "url" : "http://www.polo-como.polimi.it/en/"
       },
     {
       "name" : "Florida University",
-      "degree" : "FP2, Computer Systems Networking and Telecommunications",
+      "degree" : "Certificate of Higher Education (HNC)",
       "dates" : "2004 - 2006",
-      "majors" : "computer science",
+      "Title" : "Computer Systems Networking and Telecommunications",
       "location" : "Catarroja - Valencia (Spain)",
       "url" : "http://www.florida-uni.es/web_en/home.php"
     }],
 
 
-    "online courses" : [{
-          "title" : "Front-End Web Developer Nanodegree",
-          "school" : "udacity",
-          "dates" : "2014 - 2015",
-          "url" : "https://www.udacity.com/course/nd001"
-  }]
   };
 
 
@@ -121,6 +115,7 @@ education.display = function() {
     var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
     var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
     var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
+    
     var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors);
     var formattedUrl = HTMLonlineURL.replace("%data%",education.schools[school].url);
     $(".education-entry:last").append(formattedName + formattedDegree,formattedDates,formattedLocation,formattedMajor,formattedUrl);
@@ -152,8 +147,6 @@ work.display = function() {
       var formattedImage = HTMLprojectImage.replace("%data%",projects.project[item].images[image]);
       $(".project-entry:last").append(formattedImage);
     };
-    
-
     
   }
 };*/
