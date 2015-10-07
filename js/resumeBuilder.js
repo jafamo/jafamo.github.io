@@ -13,12 +13,12 @@ This is empty on purpose! Your code to build the resume will go here.
 
 var bio = {
           "name" : "Javier Farinos",
-          "role" : "WebDeveloper",
-          "welcomeMessage" : "Hello !!.", 
+          "role" : " WebDeveloper and SysAdmin",
+          "welcomeMessage" : "Hello !!", 
           "image" : "images/perfil.png",
           "contacts" : 
               [{
-                "mobile" : "555-55-55",
+                "mobile" : "7562-896-312",
                 "skype" : "jafamo2", 
                 "location" : "Chelmsford",
                 "email" : "jafamo@gmail.com"
@@ -36,7 +36,7 @@ var work = {
         "title" : "HelpDesk",
         "dates" : "May 2015 - July 2015",
         "location":"Valencia",
-        "description": "HelpDesk with differents OS (Linux, Windows). Resolving incidences Java version 1.6.39"
+        "description": "HelpDesk with differents OS (Linux, Windows). Resolving incidences Java (version 1.6.39)"
       },
       {
         "title" : "SysAdmin",
@@ -110,16 +110,18 @@ bio.display = function() {
 education.display = function() {
   for(school in education.schools) {
     $("#education").append(HTMLschoolStart);
-    
+
+    var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].Title);
     var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name);
     var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
     var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
     var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
-    
-    var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].Title);
-    var formattedUrl = HTMLonlineURL.replace("%data%",education.schools[school].url);
-    $(".education-entry:last").append(formattedName + formattedDegree,formattedDates,formattedLocation,formattedMajor,formattedUrl);
+    var formattedUrl = HTMLonlineURL.replace("%data%",education.schools[school].url).replace('#',education.schools[school].url);
+    //var formattedSchoolName = HTMLschoolName.replace("%data%", school.name).replace('#', school.url);
+
+    $(".education-entry:last").append("<br>"+formattedMajor + formattedName+formattedDegree,formattedDates,formattedLocation,formattedUrl);
   }
+  $(".education-entry:last").append("<br>");
 };
 
 work.display = function() {
@@ -133,6 +135,7 @@ work.display = function() {
 
     $(".work-entry:last").append("<br>"+ formattedEmployer + formattedTitle,formattedDates,formattedDescription);
   }
+   $(".work-entry:last").append("<br>");
 };
 
 /*projects.display = function(){
